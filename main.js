@@ -1,5 +1,5 @@
-/* ========================================
-   ELIEZER — Main JS
+﻿/* ========================================
+   ELIEZER â€” Main JS
    Loader, Scroll, Interactions
    ======================================== */
 
@@ -226,9 +226,9 @@ function smoothScrollTo(targetY, duration) {
   var isOpen = false;
 
   var projectTitles = {
-    atelier: "Atelier Studio — Archive",
-    frost: "Frost Node — Archive",
-    aura: "Aura Spaces — Archive"
+    atelier: "Atelier Studio â€” Archive",
+    frost: "Frost Node â€” Archive",
+    aura: "Aura Spaces â€” Archive"
   };
 
   function openArchive(project) {
@@ -310,13 +310,38 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
   var status = document.getElementById("commissionStatus");
   var submitBtn = form.querySelector(".commission-submit");
 
+  function getCaptchaToken() {
+    var responseField = form.querySelector('[name="h-captcha-response"]');
+    var fieldToken = responseField ? responseField.value.trim() : "";
+
+    if (fieldToken) return fieldToken;
+    if (window.hcaptcha && typeof window.hcaptcha.getResponse === "function") {
+      return window.hcaptcha.getResponse().trim();
+    }
+
+    return "";
+  }
+
+  function resetCaptcha() {
+    if (window.hcaptcha && typeof window.hcaptcha.reset === "function") {
+      window.hcaptcha.reset();
+    }
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting…";
     status.textContent = "";
     status.className = "commission-status";
+
+    if (!getCaptchaToken()) {
+      status.textContent = "Please complete the captcha before submitting.";
+      status.className = "commission-status commission-status--error";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
 
     var formData = new FormData(form);
 
@@ -330,14 +355,17 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
           status.textContent = "Request received. I'll review the details and respond soon.";
           status.className = "commission-status commission-status--success";
           form.reset();
+          resetCaptcha();
         } else {
           status.textContent = "Submission failed. Please email directly instead.";
           status.className = "commission-status commission-status--error";
+          resetCaptcha();
         }
       })
       .catch(function () {
         status.textContent = "Submission failed. Please email directly instead.";
         status.className = "commission-status commission-status--error";
+        resetCaptcha();
       })
       .finally(function () {
         submitBtn.disabled = false;
