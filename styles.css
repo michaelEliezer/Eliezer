@@ -1105,6 +1105,7 @@ img { display: block; max-width: 100%; }
 .commission-form select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%236d645c' stroke-width='1'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0 center; padding-right: 1.5rem; }
 .commission-form select option { background: var(--bg-elevated); color: var(--ivory); }
 .commission-form textarea { resize: vertical; min-height: 100px; }
+.form-captcha { margin-top: 1.5rem; min-height: 78px; }
 .form-actions { margin-top: 2rem; }
 .commission-submit { display: inline-block; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #F7F5EF; background: #111111; border: 1px solid #111111; padding: 0.85rem 2rem; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; border-radius: 0; }
 .commission-submit:hover:not(:disabled) { border-color: var(--accent); color: #F7F5EF; background: #1a1a1a; }
