@@ -1314,8 +1314,10 @@ body::before {
   box-shadow: 0 24px 90px rgba(0,0,0,0.42);
 }
 .nav-logo-img,
-.loader-logo,
-.nav-logo-text { color: var(--ivory); letter-spacing: 0.08em; }
+.loader-logo {
+  filter: none;
+}
+.nav-logo-text { color: var(--accent); letter-spacing: 0.08em; }
 .nav-links a { color: rgba(245,237,224,0.62); letter-spacing: 0.08em; }
 .nav-links a:hover,
 .nav-links a.is-active { color: var(--accent); }
