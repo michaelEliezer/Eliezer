@@ -19,6 +19,6 @@ This package contains the upgraded portfolio files based on the supplied `index.
 - `assets/Logo/eliezer_web_studio_logo.svg`
 - `assets/images/...`
 
-## Deploy
+## Link
 
-Upload the full folder contents to your GitHub Pages repository root, keeping the `assets/` folder paths unchanged.
+Live : https://michaeleliezer.github.io/Eliezer/
