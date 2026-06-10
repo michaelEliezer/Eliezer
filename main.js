@@ -1,5 +1,5 @@
 ﻿/* ========================================
-   ELIEZER â€” Main JS
+   ELIEZER — Main JS
    Loader, Scroll, Interactions
    ======================================== */
 
@@ -226,9 +226,9 @@ function smoothScrollTo(targetY, duration) {
   var isOpen = false;
 
   var projectTitles = {
-    atelier: "Atelier Studio â€” Archive",
-    frost: "Frost Node â€” Archive",
-    aura: "Aura Spaces â€” Archive"
+    atelier: "Atelier Studio — Archive",
+    frost: "Frost Node — Archive",
+    aura: "Aura Spaces — Archive"
   };
 
   function openArchive(project) {
